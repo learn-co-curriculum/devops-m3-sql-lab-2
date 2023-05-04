@@ -6,26 +6,31 @@
 
 ## Introduction
 
-This lab will provide practice with writing SQL SELECT statements that use the JOIN operator to
-combine rows from multiple tables based on foreign key constraints.
+This lab will provide practice with writing SQL SELECT statements that use the
+`JOIN` operator to combine rows from multiple tables based on foreign key
+constraints.
 
 The database holds information for hockey teams, players, and divisions.
 
 - A division has several teams.  Each team is in one division.
 - A team has several players.  Each player plays for one team.
 
-![lab2 erd](https://curriculum-content.s3.amazonaws.com/6036/java-mod-5-sql-lab2/lab2_erd.png
-)
+![lab2 erd](https://curriculum-content.s3.amazonaws.com/6036/java-mod-5-sql-lab2/lab2_erd.png)
 
 ## Instructions
 
 1. Create a new database named `lab2`.
-2. Select the `lab2` database and open the query tool.          
-3. Open the `lab_setup.sql` file in the query tool, then execute the SQL statements to create
-   the tables and insert rows.
-4. Close the current connection by closing the tab on the query tool toolbar, and then open a new query
-   tool connection (to avoid overwriting lab_setup.sql).    
-5. Execute the following queries and confirm the tables are populated:   
+2. Select the `lab2` database and open the query tool.
+3. Navigate to the file [here](https://raw.githubusercontent.com/learn-co-curriculum/devops-m3-sql-lab-2/main/lab_setup.sql).
+4. Right-click anywhere on the page > select "Save as" to save the file.
+    1. Save the file as "lab2_setup.sql". Make sure to save it as a SQL file!
+    2. Remember the place the file is saved, as you'll need it in the next step.
+5. Open the `lab2_setup.sql` file in the query tool.
+6. Execute the SQL statements to create the tables and insert the rows.
+7. Close the current connection by closing the tab on the query tool toolbar,
+   and then open a new query tool connection (to avoid overwriting
+   lab2_setup.sql).
+8. Execute the following queries and confirm the tables are populated:
 
 <table>
 <tr>
@@ -124,17 +129,15 @@ id  name            team_id
 
 </table>
 
-
-
-
 ## Tasks
 
 1. Write a SELECT statement to produce the expected result for each task below.
    Use the Query Tool to test your code.
-2. Save the SELECT statement for each task to a new file named task1.sql, task2.sql, etc.
-   Be sure to save using the "Save As" option to avoid overwriting the previous query file.
+2. Save the SELECT statement for each task to a new file named task1.sql,
+   task2.sql, etc. Be sure to save using the "Save As" option to avoid
+   overwriting the previous query file.
 
-![save as](https://curriculum-content.s3.amazonaws.com/6036/sql_lab_1/saveas.png)
+![save-as](https://curriculum-content.s3.amazonaws.com/pe-mod-3/sql-lab2/pgAdmin-save-as-lab2.png)
 
 ### Task #1
 
@@ -144,7 +147,7 @@ id  name            team_id
 
 Expected Result:
 
-<pre>
+```text
 id  name                    wins    losses  division_id id  name
 
 4   San Jose Swifts         43      12      6           6   Pacific
@@ -152,29 +155,28 @@ id  name                    wins    losses  division_id id  name
 1   Boston Blue Jays        43      16      3           3   Northeast
 5   Houston Hummingbirds    38      18      2           2   Central
 2   Columbus Cardinals      34      27      2           2   Central
-</pre>
-
+```
 
 ### Task #2
 
-- Display the division name, team name, and number of wins for
-  teams that have at least 40 wins.
+- Display the division name, team name, and number of wins for teams that have
+  at least 40 wins.
 - Order the result in descending order of wins.
 
 Expected Result:
 
-<pre>
+```text
 name        name                wins
 
 Central     Detroit Dodos       44
 Northeast   Boston Blue Jays    43
 Pacific     San Jose Swifts     43
-</pre>
+```
 
-NOTE: pgAdmin does not preface the column headings with the table name,
-but the columns in the result are actually division.name, team.name, and team.wins.
-You can omit the table name when there are no column name conflicts, such as the wins
-column.
+NOTE: pgAdmin does not preface the column headings with the table name, but the
+columns in the result are actually division.name, team.name, and team.wins. You
+can omit the table name when there are no column name conflicts, such as the
+"wins" column.
 
 ### Task #3
 
@@ -184,23 +186,23 @@ column.
 
 Expected Result:
 
-<pre>
+```text
 id  name        count
 
 2   Central     3
 3   Northeast   1
 6   Pacific     1
-</pre>
-
+```
 
 ### Task #4
 
-- Join the player and team tables and display each player's name, along with their team name.
+- Join the player and team tables and display each player's name, along with
+  their team name.
 - Sort the result by player name.
 
 Expected Result:
 
-<pre>
+```text
 name            name
 
 A.B. Cherry     Boston Blue Jays
@@ -211,18 +213,20 @@ K.W. Maple      San Jose Swifts
 P.J. Willow     Boston Blue Jays
 P.Q. Chestnut   Boston Blue Jays
 Z.Z. Oak        Detroit Dodos
-</pre>
+```
 
 ### Task #5
 
 - Display each player name, team name, and division name (so join all 3 tables),
   for players in the Northeast or Pacific divisions.
-- Use the AS keyword to display the columns with aliased names "player", "team", and "division"
-  (versus name, name, and name).  Don't use double or single quotes to assign the column aliases.
+- Use the `AS` keyword to display the columns with aliased names "player",
+  "team", and "division" (versus name, name, and name). Don't use double or
+  single quotes to assign the column aliases.
 - Sort the result in ascending order of player name.
 
-Expected Result: 
-<pre>
+Expected Result:
+
+```text
 player          team                division
 
 A.B. Cherry     Boston Blue Jays    Northeast    
@@ -231,8 +235,7 @@ F.P. Pine       San Jose Swifts     Pacific
 K.W. Maple      San Jose Swifts     Pacific
 P.J. Willow     Boston Blue Jays    Northeast
 P.Q. Chestnut   Boston Blue Jays    Northeast
-</pre>
-
+```
 
 ## Resources
 
@@ -241,4 +244,3 @@ P.Q. Chestnut   Boston Blue Jays    Northeast
 - [PostgreSQL ORDER BY](https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-order-by/)
 - [PostgreSQL GROUP BY](https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-group-by/)  
 - [PostgreSQL AS alias](https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-alias/)
-
